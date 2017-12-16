@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/bootstrap.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+  </head>
+  <body>
+    <h1 class="text-center">Either.sch</h1>
+    <div class="container">
+
+      <div class="col-md-6">
+        <div class="well blue">
+          <h2 class="text-center">Option 1</h2>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="well red">
+          <h2 class="text-center">Option 2</h2>
+        </div>
+      </div>
+
+    </div>
+  <script type="text/javascript">
+var questions = [
+{
+question: "Melyik lennél inkább?",
+answer1: "Nagymester",
+answer2: "Simonyi elnök"
+}
+]
+
+function getRandomQuestion()
+{
+  return _.sample(_.filter(questions, {asked: false}));
+}
+  </script>
+  </body>
+</html>

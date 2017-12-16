@@ -45,7 +45,7 @@ var questions = [
     answer2: "Piros"
   },{
     question: "Melyik gárdába tartoznál inkább?",
-    answer1: "Fehée",
+    answer1: "Fehér",
     answer2: "Sárga"
   },{
     question: "Mi az idegesítőbb?",
@@ -168,7 +168,7 @@ var questions = [
     answer1: "Sör",
     answer2: "Cider"
   },{
-    question: "Milyen pia?"
+    question: "Milyen pia?",
     answer1: "Rövid",
     answer2: "Hosszú"
   },{

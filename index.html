@@ -12,21 +12,21 @@
 
       <div class="row">
         <div class="col-md-6">
-          <div class="well blue">
-            <h2 class="text-center" id="answer1">Option 1</h2>
+          <div class="well blue answer" onClick="answer(0)">
+            <h2 id="answer1">Option 0</h2>
           </div>
         </div>
 
         <div class="col-md-6">
-          <div class="well red">
-            <h2 class="text-center" id="answer2">Option 2</h2>
+          <div class="well red answer" onClick="answer(1)">
+            <h2 id="answer2">Option 1</h2>
           </div>
         </div>
       </div>
 
       <div class="row">
         <div class="col-md-12 text-center">
-          <button class="btn btn-primary" onClick="fillNewQuestion()">
+          <button class="btn btn-primary btn-lg btn-block" onClick="fillNewQuestion()">
             Kérek egy jobbat
           </button>
         </div>
@@ -36,17 +36,31 @@
     <script src="assets/js/lodash.js"></script>
     <script src="questions.js"></script>
     <script type="text/javascript">
-      function getRandomQuestion()
-      {
+      function getRandomQuestion() {
         return _.sample(_.filter(questions, (q) => q.asked == undefined));
       }
-      function fillNewQuestion()
-      {
+
+      function fillNewQuestion() {
         var nextQuestion = getRandomQuestion();
         document.getElementById("question").innerText = nextQuestion.question;
         document.getElementById("answer1").innerText = nextQuestion.answer1;
         document.getElementById("answer2").innerText = nextQuestion.answer2;
         nextQuestion.asked = true;
+
+        document.getElementById("answer1").className = "";
+        document.getElementById("answer2").className = "";
+      }
+
+      function answer(number) {
+        if(number)
+            document.getElementById("answer2").className += " checked";
+        else
+            document.getElementById("answer1").className += " checked";
+
+        if(_.random(0,1))
+          document.getElementById("answer1").className += " good";
+        else
+          document.getElementById("answer2").className += " good";
       }
     </script>
   </body>

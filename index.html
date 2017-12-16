@@ -31,8 +31,12 @@
           </button>
         </div>
       </div>
+      <div class="row" style="font-size: large; padding-top: 15px;">
+        <div class="col-md-4 text-center"> Jó kérdés </div>
+        <div class="col-md-4 text-center"> Szar kérdés </div>
+        <div class="col-md-4 text-center"> <a href="#"> Jelentés </a> </div>
+      </div>
     </div>
-
     <script src="assets/js/lodash.js"></script>
     <script src="questions.js"></script>
     <script type="text/javascript">
@@ -57,13 +61,13 @@
         else
             document.getElementById("answer1").className += " checked";
 
-        var percent = _.random(0, 1, true);
+        var percent = _.random(0.2, 1.2, true);
         if(percent < 0.5 ^ number)
             document.getElementById("question").innerText = "Igyál!";
         else
             document.getElementById("question").innerText = "Talált!";
-        document.getElementById("answer1").innerText = (percent * 100).toFixed(2) + "%";
-        document.getElementById("answer2").innerText = ((1 - percent) * 100).toFixed(2) + "%";
+        document.getElementById("answer1").innerHTML += " <br />" + (percent * 100).toFixed(2) + "%";
+        document.getElementById("answer2").innerHTML += " <br />" + ((1 - percent) * 100).toFixed(2) + "%";
       }
 
       document.addEventListener("DOMContentLoaded", function(event) {

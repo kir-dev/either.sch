@@ -8,7 +8,7 @@ body{
 }
 
 .blue:hover {
-  border-color: rgba(67, 133, 255, 0.7);
+  background-color: rgba(67, 133, 255, 0.7);
 }
 
 .blue > h2 {

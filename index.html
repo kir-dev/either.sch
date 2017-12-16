@@ -7,18 +7,18 @@
     <link rel="stylesheet" href="assets/css/main.css">
   </head>
   <body>
-    <h1 class="text-center">Either.sch</h1>
+    <h1 class="text-center" id="question">Either.sch</h1>
     <div class="container">
 
       <div class="col-md-6">
         <div class="well blue">
-          <h2 class="text-center">Option 1</h2>
+          <h2 class="text-center" id="answer1">Option 1</h2>
         </div>
       </div>
 
       <div class="col-md-6">
         <div class="well red">
-          <h2 class="text-center">Option 2</h2>
+          <h2 class="text-center" id="answer2">Option 2</h2>
         </div>
       </div>
 
@@ -29,7 +29,15 @@
     <script type="text/javascript">
       function getRandomQuestion()
       {
-        return _.sample(_.filter(questions, {asked: undefined}));
+        return _.sample(_.filter(questions, (q) => q.asked == undefined));
+      }
+      function fillNewQuestion()
+      {
+        var nextQuestion = getRandomQuestion();
+        document.getElementById("question").innerText = nextQuestion.question;
+        document.getElementById("answer1").innerText = nextQuestion.answer1;
+        document.getElementById("answer2").innerText = nextQuestion.answer2;
+        nextQuestion.asked = true;
       }
     </script>
   </body>

@@ -94,7 +94,7 @@
           var current = 0;
           var interval = setInterval(() => {
               current += target / 20;
-              if (current > target) {
+              if (current >= target) {
                   current = target;
                   clearInterval(interval);
               }

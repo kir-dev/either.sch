@@ -240,6 +240,22 @@ var questions = [
     answer1: "2.5-ös átlaggal fuckolni, hogy a seniorok bemutyizzák magukat a koliba",
     answer2: "Bemutyizni magad a koliba"
   },{
+    question: "Mit tennél inkább?",
+    answer1: "Minden héten hazamennél",
+    answer2: "Csak ünnepekkor mennél haza"
+  },{
+    question: "Mi a rosszabb?",
+    answer1: "Az egyik liftben ragadni pár órára",
+    answer2: "Vitázni a portásokkal"
+  },{
+    question: "Mit csinálnál inkább?",
+    answer1: "Lépcsőzni a 3.-ra",
+    answer2: "Liftet hívni a 3.-ra"
+  },{
+    question: "Mit tennél?",
+    answer1: "Ökörsütés pólóban mennél állásinterjúra",
+    answer2: "Qpa pólóban mennél első randira"
+  },{
     question: "",
     answer1: "",
     answer2: ""

@@ -34,8 +34,19 @@ body{
   top: 0;
   left: 20px;
 }
-
+.answers > div {
+  display: table;
+  min-height: 196px;
+  margin-bottom: 25px;
+}
 .answer {
+  display: table-cell;
+  vertical-align: middle;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.9);
+}
+
+.feedback-buttons {
+  font-size: large;
+  padding-top: 15px;
 }

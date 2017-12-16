@@ -10,7 +10,7 @@
     <h1 class="text-center" id="question">Either.sch</h1>
     <div class="container">
 
-      <div class="row">
+      <div class="row answers">
         <div class="col-md-6">
           <div class="well blue answer" onClick="answer(0)">
             <h2 id="answer1">Option 0</h2>
@@ -31,7 +31,7 @@
           </button>
         </div>
       </div>
-      <div class="row" style="font-size: large; padding-top: 15px;">
+      <div class="row feedback-buttons">
         <div class="col-md-4 text-center"> Jó kérdés </div>
         <div class="col-md-4 text-center"> Szar kérdés </div>
         <div class="col-md-4 text-center"> <a href="#"> Jelentés </a> </div>
@@ -61,18 +61,28 @@
         else
             document.getElementById("answer1").className += " checked";
 
-        var percent = _.random(0.2, 1.2, true);
+        var percent = _.random(0.2, 0.8, true);
         if(percent < 0.5 ^ number)
-            document.getElementById("question").innerText = "Igyál!";
+            document.getElementById("question").innerText = "Igyatok!";
         else
             document.getElementById("question").innerText = "Talált!";
+
         document.getElementById("answer1").innerHTML += " <br />" + (percent * 100).toFixed(2) + "%";
         document.getElementById("answer2").innerHTML += " <br />" + ((1 - percent) * 100).toFixed(2) + "%";
       }
 
+      function everyoneDrink() {
+          setInterval(() => {
+              alert("Mindenki iszik!");
+              everyoneDrink();
+            },
+            _.random(5*60, 20*60) * 1000);
+      }
       document.addEventListener("DOMContentLoaded", function(event) {
         fillNewQuestion();
+        everyoneDrink();
       });
+
     </script>
   </body>
 </html>

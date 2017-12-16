@@ -255,7 +255,13 @@ var questions = [
     question: "Mit tennél?",
     answer1: "Ökörsütés pólóban mennél állásinterjúra",
     answer2: "Qpa pólóban mennél első randira"
-  },{
+  },
+  {
+    question: "Bekurjunk?",
+    answer1: "Igen",
+    answer2: "Majd 10 perc mulva"
+  },
+  {
     question: "",
     answer1: "",
     answer2: ""

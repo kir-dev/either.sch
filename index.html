@@ -23,39 +23,14 @@
       </div>
 
     </div>
-  <script type="text/javascript">
-var questions = [
-{
-  question: "Melyik lennél inkább?",
-  answer1: "Nagymester",
-  answer2: "Simonyi elnök"
-},{
-  question: "Melyik kör vezetője lennél?",
-  answer1: "Kerékpár Kör",
-  answer2: "Kir-Dev"
-},{
-  question: "",
-  answer1: "",
-  answer2: ""
-},{
-  question: "",
-  answer1: "",
-  answer2: ""
-},{
-  question: "",
-  answer1: "",
-  answer2: ""
-},{
-  question: "",
-  answer1: "",
-  answer2: ""
-},
-]
 
-function getRandomQuestion()
-{
-  return _.sample(_.filter(questions, {asked: false}));
-}
-  </script>
+    <script src="assets/js/lodash.js"></script>
+    <script src="questions.js"></script>
+    <script type="text/javascript">
+      function getRandomQuestion()
+      {
+        return _.sample(_.filter(questions, {asked: undefined}));
+      }
+    </script>
   </body>
 </html>

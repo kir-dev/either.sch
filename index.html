@@ -10,18 +10,27 @@
     <h1 class="text-center" id="question">Either.sch</h1>
     <div class="container">
 
-      <div class="col-md-6">
-        <div class="well blue">
-          <h2 class="text-center" id="answer1">Option 1</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="well blue">
+            <h2 class="text-center" id="answer1">Option 1</h2>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="well red">
+            <h2 class="text-center" id="answer2">Option 2</h2>
+          </div>
         </div>
       </div>
 
-      <div class="col-md-6">
-        <div class="well red">
-          <h2 class="text-center" id="answer2">Option 2</h2>
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <button class="btn btn-primary" onClick="fillNewQuestion()">
+            Kérek egy jobbat
+          </button>
         </div>
       </div>
-
     </div>
 
     <script src="assets/js/lodash.js"></script>

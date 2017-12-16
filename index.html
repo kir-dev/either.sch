@@ -57,11 +57,18 @@
         else
             document.getElementById("answer1").className += " checked";
 
-        if(_.random(0,1))
-          document.getElementById("answer1").className += " good";
+        var percent = _.random(0, 1, true);
+        if(percent < 0.5 ^ number)
+            document.getElementById("question").innerText = "Igyál!";
         else
-          document.getElementById("answer2").className += " good";
+            document.getElementById("question").innerText = "Talált!";
+        document.getElementById("answer1").innerText = (percent * 100).toFixed(2) + "%";
+        document.getElementById("answer2").innerText = ((1 - percent) * 100).toFixed(2) + "%";
       }
+
+      document.addEventListener("DOMContentLoaded", function(event) {
+        fillNewQuestion();
+      });
     </script>
   </body>
 </html>

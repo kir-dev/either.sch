@@ -34,7 +34,22 @@ body{
   top: 0;
   left: 20px;
 }
-.answers > div {
+.answers {
+  position: relative;
+}
+.or {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -48px;
+  margin-left: -48px;
+  width: 96px;
+  height: 96px;
+  background-image: url(../../images/or.png);
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+.answers > div.option {
   display: table;
   min-height: 196px;
   margin-bottom: 25px;

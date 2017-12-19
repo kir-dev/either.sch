@@ -16,7 +16,8 @@ var Question = new mongoose.Schema({
     answer1: String,
     answer2: String,
     rating: Number,
-    status: String
+    status: String,
+    group: String
 });
 
 mongoose.model('Question', Question);
@@ -35,5 +36,17 @@ var Answer = new mongoose.Schema({
 });
 
 mongoose.model('Answer', Answer);
+
+var Admin = new mongoose.Schema({
+    _id: {
+        type: ObjectId,
+        default: function f() {
+            return new mongoose.Types.ObjectId();
+        }
+    },
+    password: String
+});
+
+mongoose.model('Admin', Admin);
 
 module.exports = mongoose.models;

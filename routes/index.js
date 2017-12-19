@@ -8,10 +8,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/question', function (req, res, next) {
+  var nonsch = req.query.nonsch == 1;
   dal.Answer.find({ user: req.user }, function (err, doc) {
     var asked = _.map(doc, 'question');
-    console.log(asked[0]);
-    dal.Question.find({ _id: { $nin: asked } }, function (err, doc) {
+    var query = { _id: { $nin: asked } };
+    if(!nonsch) {
+      query.group = 'sch';
+    }
+    dal.Question.find(query, function (err, doc) {
         res.json(_.sample(doc));
     });
   })
@@ -25,7 +29,7 @@ router.post('/answer', function (req, res) {
            if(req.body.answer == 1) {
              ans1 -= 1;
            } else {
-            ans2 -= 1;
+             ans2 -= 1;
            }
 
            var ret = 0;

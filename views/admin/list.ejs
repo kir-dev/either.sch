@@ -3,13 +3,36 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/bootstrap.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
   </head>
   <body>
     <h1 class="text-center" id="question">YO</h1>
-    </div>
-    <script src="assets/js/lodash.js"></script>
-    <script src="assets/js/jquery-3.2.1.min.js"></script>
+    <table class="table table-stripped table-hover">
+      <% questions.forEach(function(question) { %>
+        <tr>
+          <td><%= question.question %></td>
+          <td><%= question.answer1 %></td>
+          <td><%= question.answer2 %></td>
+          <td><button class="btn btn-warning" id="<%= question._id %>" onclick="nonsch('<%= question._id %>')">Nem sch-kérdés</button></td>
+          <td><button class="btn btn-danger" onclick="deleteItem('<%= question._id %>')">Törlés</button></td>
+        </tr>
+      <% });   %>
+    </table>
+    <script type="text/javascript">
+      function nonsch(id) {
+        console.log(id);
+        $.post('/admin/nonsch', {id: id}, function () {
+          
+        });
+      };
+      function deleteItem(id) {
+        $.post('/admin/delete', {id: id}, function () {
+          
+        });
+      };
+    </script>
+    <script src="/assets/js/lodash.js"></script>
+    <script src="/assets/js/jquery-3.2.1.min.js"></script>
   </body>
 </html>

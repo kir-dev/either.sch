@@ -12,7 +12,23 @@ router.post('/', admincheck, function(req, res) {
 });
 
 router.get('/list', admincheck, function (req, res, next) {
-  res.render('admin/list');
+  dal.Question.find({}, function(err, doc) {
+    res.render('admin/list', { questions: doc });
+  });
+});
+
+router.post('/nonsch', admincheck, function (req, res) {
+  var id = req.body.id;
+  dal.Question.update({ _id: id }, { group: "general" }, function (err, doc) {
+    res.sendStatus(200);
+  });
+});
+
+router.post('/delete', admincheck, function (req, res) {
+  var id = req.body.id;
+  dal.Question.findOne({ _id: id }).remove(function (err, doc) {
+    res.sendStatus(200);
+  });
 });
 
 module.exports = router;

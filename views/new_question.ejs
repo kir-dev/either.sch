@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/css/bootstrap.css">
+    <link rel="stylesheet" href="../assets/css/main.css">
+  </head>
+  <body>
+
+    <h1 class="text-center" id="question">Either.sch</h1>
+    <div class="container">
+
+      <% if (typeof(message) !== 'undefined') { %>
+        <% if(message.type == "success") { %>
+          <div class="alert alert-success">
+              <%= message.message %>
+          </div>
+        <% } %>
+        <% if(message.type == "error") { %>
+          <div class="alert alert-danger">
+              <%= message.message %>
+          </div>
+        <% } %>
+      <% } %>
+
+      <form action="/questions/new" method="POST">
+        <div class="form-group">
+          <input type="text" name="question" class="form-control" placeholder="Kérdés" autofocus>
+        </div>
+
+        <div class="row answers">
+          <div class="col-xs-6 option">
+            <div class="well blue answer">
+              <input type="text" name="answer1" class="form-control" placeholder="Válasz 1">
+            </div>
+          </div>
+          <div class="or"></div>
+
+          <div class="col-xs-6 option">
+            <div class="well red answer">
+              <input type="text" name="answer2" class="form-control" placeholder="Válasz 2">
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <input type="submit" class="btn btn-primary btn-lg btn-block" value="Létrehozás">
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

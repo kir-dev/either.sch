@@ -41,4 +41,58 @@ router.post('/answer', function (req, res) {
    })
 });
 
+
+
+router.get('/questions/new', function (req, res, next) {
+
+    res.render('new_question');
+
+});
+
 module.exports = router;
+
+
+router.post('/questions/new', function (req, res, next) {
+
+    var question = {
+        question: req.body.question,
+        answer1: req.body.answer1,
+        answer2: req.body.answer2
+    };
+
+    dal.Question.findOne(question, function(err, doc){
+
+        if(doc) {
+            res.render('new_question', {
+                "message": {
+                    "message": "Bocs ostya, ilyen már van",
+                    "type": "error"
+                }
+            });
+            return;
+        } else {
+            new dal.Question(question).save(function (err) {
+                if (err) {
+                    res.render('new_question', {
+                            "message": {
+                                "message": "Valami hiba történt, bocs inas",
+                                "type": "error"
+                            }
+                        }
+                    );
+                } else {
+
+                    res.render('new_question', {
+                            "message": {
+                                "message": "Szép volt bástya, létrehoztál egy új kérdést",
+                                "type": "success"
+                            }
+                        }
+                    );
+                }
+            });
+        }
+
+    });
+
+});

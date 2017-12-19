@@ -6,7 +6,12 @@ var Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId;
 
 var Question = new mongoose.Schema({
-    _id: ObjectId,
+    _id: {
+        type: ObjectId,
+        default: function f() {
+            return new mongoose.Types.ObjectId();
+        }
+    },
     question: String,
     answer1: String,
     answer2: String,

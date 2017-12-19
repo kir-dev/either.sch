@@ -65,3 +65,22 @@ body{
   font-size: large;
   padding-top: 15px;
 }
+
+
+input[name=question] {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  width: 100%;
+  color: white;
+  margin: 0 auto;
+}
+
+.blue input, .red input {
+  border: none;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  width: 90%;
+  color: white;
+  margin: 0 auto;
+}

@@ -39,7 +39,8 @@
         <div class="col-md-4 text-center"> <a href="#"> Jelentés </a> </div>
       </div>
     <div style="position:fixed;bottom:0px;left:0px;">
-      <input type="checkbox" name="none-sch" value="true" id="schQuestions">Nem kérek sch-s kérdéseket<br>
+      <input type="checkbox" name="none-sch" value="true" id="schQuestions">
+      <label for="schQuestions">Kérek nem sch-s kérdéseket is</label>
     </div>
     </div>
     <script src="assets/js/lodash.js"></script>
@@ -48,20 +49,10 @@
       var status = "answering";
       var currentQuestion = {};
       function getRandomQuestion() {
-          var schQuestions = document.getElementById("schQuestions");
-          if(schQuestions.value()){
-              $.get('/question?nonsch=0', function (data) {
-                  currentQuestion = data;
-                  fillNewQuestion(data);
-              });
-          }else{
-
-              $.get('/question?nonsch=1', function (data) {
-                  currentQuestion = data;
-                  fillNewQuestion(data);
-              });
-          }
-
+        $.get('/question?nonsch=' + +$("#schQuestions").prop("checked"), function (data) {
+            currentQuestion = data;
+            fillNewQuestion(data);
+        });
         //return _.sample(_.filter(questions, (q) => q.asked == undefined));
       }
 

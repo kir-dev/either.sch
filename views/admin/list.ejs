@@ -10,7 +10,7 @@
     <h1 class="text-center" id="question">YO</h1>
     <table class="table table-stripped table-hover">
       <% questions.forEach(function(question) { %>
-        <tr>
+        <tr <% if(question.best) { %> class="success" <% } %>>
           <td><%= question.question %></td>
           <td><%= question.answer1 %></td>
           <td><%= question.answer2 %></td>

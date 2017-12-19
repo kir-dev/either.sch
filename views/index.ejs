@@ -48,7 +48,7 @@
       var status = "answering";
       var currentQuestion = {};
       function getRandomQuestion() {
-          $.get('/question', function (data) {
+          $.get('/question?nonsch=1', function (data) {
               currentQuestion = data;
               fillNewQuestion(data);
           });

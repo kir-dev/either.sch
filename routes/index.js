@@ -1,6 +1,7 @@
 var _ = require('../public/assets/js/lodash.js');
 var express = require('express');
 var router = express.Router();
+var uuid = require('uuid/v4');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -16,7 +17,14 @@ router.get('/question', function (req, res, next) {
       query.group = 'sch';
     }
     dal.Question.find(query, function (err, doc) {
-        res.json(_.sample(doc));
+        var question = _.sample(doc);
+        if(question) {
+            res.json(question);
+        } else {
+            var newUid = uuid();
+            res.cookie('x-either-userid', newUid);
+            req.user = newUid;
+        }
     });
   })
 });

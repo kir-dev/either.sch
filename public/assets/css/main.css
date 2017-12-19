@@ -59,6 +59,7 @@ body{
   vertical-align: middle;
   cursor: pointer;
   color: rgba(255, 255, 255, 0.9);
+  word-wrap: break-word;
 }
 
 .feedback-buttons {

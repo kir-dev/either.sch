@@ -76,7 +76,11 @@ router.post('/questions/new', function (req, res, next) {
         answer1: req.body.answer1,
         answer2: req.body.answer2
     };
-
+    if(req.body.group) {
+        question.group = 'sch';
+    } else {
+        question.group = 'general';
+    }
     dal.Question.findOne(question, function(err, doc){
 
         if(doc) {

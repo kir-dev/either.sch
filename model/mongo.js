@@ -17,7 +17,8 @@ var Question = new mongoose.Schema({
     answer2: String,
     rating: Number,
     status: String,
-    group: String
+    group: String,
+    best: Boolean
 });
 
 mongoose.model('Question', Question);

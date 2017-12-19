@@ -5,6 +5,7 @@ module.exports = function (req, res, next) {
     var newUid = uuid();
     res.cookie('x-either-userid', newUid);
     req.user = newUid;
+    req.firsttime = true;
   } else {
     req.user = req.cookies['x-either-userid'];
   }

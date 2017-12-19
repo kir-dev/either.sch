@@ -16,6 +16,9 @@ router.get('/question', function (req, res, next) {
     if(!nonsch) {
       query.group = 'sch';
     }
+    if(req.firsttime) {
+      query.best = true;
+    }
     dal.Question.find(query, function (err, doc) {
         var question = _.sample(doc);
         if(question) {

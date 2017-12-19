@@ -1,4 +1,4 @@
-var _ = require('../public/assets/js/lodash.js')
+var _ = require('../public/assets/js/lodash.js');
 var express = require('express');
 var router = express.Router();
 
@@ -8,13 +8,17 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/question', function (req, res, next) {
-    dal.Question.find(function (err, doc) {
+  dal.Answer.find({ user: req.user }, function (err, doc) {
+    var asked = _.map(doc, 'question');
+    console.log(asked[0]);
+    dal.Question.find({ _id: { $nin: asked } }, function (err, doc) {
         res.json(_.sample(doc));
     });
+  })
 });
 
 router.post('/answer', function (req, res) {
-   new dal.Answer({question: req.body.question, answer: req.body.answer, timestamp: new Date()}).save(function (err, doc) {
+   new dal.Answer({question: req.body.question, answer: req.body.answer, timestamp: new Date(), user: req.user}).save(function (err, doc) {
        dal.Answer.find({ question: doc.question }, function (err, doc) {
            var ans1 = _.filter(doc, (ans) => ans.answer === 1).length;
            var ans2 = _.filter(doc, (ans) => ans.answer === 2).length;

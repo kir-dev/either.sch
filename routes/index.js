@@ -16,7 +16,8 @@ router.get('/question', function (req, res, next) {
     if(!nonsch) {
       query.group = 'sch';
     }
-    if(req.firsttime) {
+    if(req.cookies['x-either-firsttime'] > 0) {
+      res.cookie('x-either-firsttime', 0);
       query.best = true;
     }
     dal.Question.find(query, function (err, doc) {

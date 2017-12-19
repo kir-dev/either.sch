@@ -24,6 +24,7 @@ router.get('/question', function (req, res, next) {
             var newUid = uuid();
             res.cookie('x-either-userid', newUid);
             req.user = newUid;
+            res.sendStatus(200);
         }
     });
   })

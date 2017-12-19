@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', admincheck, function(req, res) {
   res.redirect('/admin/list');
-})
+});
 
 router.get('/list', admincheck, function (req, res, next) {
   res.render('admin/list');
